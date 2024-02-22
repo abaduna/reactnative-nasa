@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View ,StyleSheet,Image} from 'react-native'
+import { Text, View ,StyleSheet,Image, ScrollView} from 'react-native'
 import { useRoute } from '@react-navigation/native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { RoutStackParams } from '../../types'
@@ -14,7 +14,10 @@ const Detail = () => {
         <View  style={style.block}>
           <Text  style={style.title}>{title}</Text>
           <Image  source={{uri:url}} style={style.image}/>
-          <Text style={style.explanation}>{explanation}</Text>
+          <ScrollView>
+           <Text style={style.explanation}>{explanation}</Text> 
+          </ScrollView>
+          
           <Text style={style.date}>{date}</Text>
         </View>
         
@@ -39,7 +42,9 @@ const style = StyleSheet.create({
     color:"#fff",
     textAlign:"center",
     fontSize:25,
-    fontWeight:"bold"
+    fontWeight:"bold",
+    paddingBottom:25,
+    justifyContent:"center"
   },
   date:{
   color:"#fff",
@@ -50,7 +55,8 @@ const style = StyleSheet.create({
   fontSize:15,
   fontWeight:"bold"},
   block:{
-    padding:15
+    padding:15,
+    backgroundColor:"#2c449d"
   }
 })
 export default Detail
